@@ -1,0 +1,288 @@
+:root {
+    --bg-color: #08070b;
+    --terminal-bg: #0d0c12;
+    --accent-orange: #ff6b00;
+    --accent-purple: #9b51e0;
+    --text-glow: #ffdf9e;
+    --candle-glow: #ff9f1c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 50% 20%, #1a1423 0%, var(--bg-color) 80%);
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 1px dashed rgba(255, 107, 0, 0.3);
+    width: 100%;
+    max-width: 900px;
+}
+
+header h1 {
+    color: var(--accent-orange);
+    font-size: 2.2rem;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #b19cd9;
+    font-size: 0.95rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.tab-btn {
+    background: #151320;
+    border: 1px solid var(--accent-purple);
+    color: #b19cd9;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--accent-purple);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(155, 81, 224, 0.6);
+}
+
+.section {
+    display: none;
+    background: var(--terminal-bg);
+    border: 1px solid rgba(255, 107, 0, 0.3);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+.section.active {
+    display: block;
+}
+
+/* Terminal Styles */
+.terminal-screen {
+    background: #040306;
+    border: 1px solid #332d42;
+    height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.log-entry {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.log-user {
+    color: #61afef;
+}
+
+.log-ghost {
+    color: var(--accent-orange);
+    font-style: italic;
+}
+
+.log-system {
+    color: #98c379;
+}
+
+.terminal-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+.terminal-input-area input {
+    flex: 1;
+    background: #040306;
+    border: 1px solid #483d6e;
+    color: #fff;
+    padding: 10px 15px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 4px;
+}
+
+.terminal-input-area input:focus {
+    outline: none;
+    border-color: var(--accent-orange);
+}
+
+.terminal-input-area button {
+    background: var(--accent-orange);
+    border: none;
+    color: #fff;
+    padding: 0 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.terminal-input-area button:hover {
+    opacity: 0.85;
+}
+
+/* Ofrenda Altar Styles */
+.ofrenda-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    color: #b19cd9;
+    font-size: 0.85rem;
+}
+
+.form-group input, .form-group textarea {
+    background: #040306;
+    border: 1px solid #332d42;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-purple);
+}
+
+.altar-display {
+    background: linear-gradient(to bottom, #120e1c, #050408);
+    border: 2px solid #4a3b6e;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.marigolds {
+    color: #ff9f1c;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.altar-photo-frame {
+    width: 120px;
+    height: 120px;
+    border: 3px solid var(--accent-orange);
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px auto;
+    background: #221d2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+}
+
+.altar-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.altar-name {
+    color: var(--text-glow);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    text-shadow: 0 0 8px rgba(255, 223, 158, 0.4);
+}
+
+.altar-tribute {
+    color: #ccc;
+    font-style: italic;
+    max-width: 500px;
+    margin: 10px auto;
+    font-size: 0.95rem;
+}
+
+.altar-offerings {
+    margin-top: 15px;
+    color: var(--candle-glow);
+    font-size: 0.9rem;
+}
+
+.candle-glow {
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.8; text-shadow: 0 0 5px var(--candle-glow); }
+    100% { opacity: 1; text-shadow: 0 0 15px var(--candle-glow), 0 0 25px var(--accent-orange); }
+}
+
+.create-btn {
+    background: var(--accent-purple);
+    border: none;
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    grid-column: span 2;
+    transition: opacity 0.2s;
+}
+
+.create-btn:hover {
+    opacity: 0.9;
+}
+
+footer {
+    margin-top: auto;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+}

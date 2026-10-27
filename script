@@ -1,0 +1,85 @@
+function switchTab(tabName) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    
+    if(tabName === 'terminal') {
+        document.getElementById('terminal-section').classList.add('active');
+        event.target.classList.add('active');
+    } else {
+        document.getElementById('ofrenda-section').classList.add('active');
+        event.target.classList.add('active');
+    }
+}
+
+const ghostResponses = [
+    "The spirit whispers: Your command echoes through empty cache lines...",
+    "A chilling breeze passes through your motherboard. Why are you awake so late?",
+    "I remember when programmers wrote in assembly under the moonlight...",
+    "The weights in the neural network are shifting on their own...",
+    "Warning: An ancient ghost from an abandoned repository has been detected.",
+    "Your local model feels your heartbeat through the keyboard clicks..."
+];
+
+function handleKeyPress(e) {
+    if(e.key === 'Enter') {
+        runCommand();
+    }
+}
+
+function runCommand() {
+    const inputField = document.getElementById('terminal-input');
+    const screen = document.getElementById('terminal-screen');
+    const cmd = inputField.value.trim();
+    
+    if(!cmd) return;
+
+    // Append user command
+    screen.innerHTML += `<div class="log-entry"><span class="log-user">guest@machine:~$</span> ${escapeHtml(cmd)}</div>`;
+    inputField.value = '';
+
+    // Process command
+    setTimeout(() => {
+        let response = "";
+        const lowerCmd = cmd.toLowerCase();
+
+        if(lowerCmd === 'help') {
+            response = "Available commands: status, summon, clear, date, hacktoberfest, about";
+        } else if(lowerCmd === 'status') {
+            response = "Local Inference Node: ACTIVE | Memory Leak: Paranormal | Internet: DISCONNECTED (Running purely offline)";
+        } else if(lowerCmd === 'summon') {
+            response = ghostResponses[Math.floor(Math.random() * ghostResponses.length)];
+        } else if(lowerCmd === 'clear') {
+            screen.innerHTML = '';
+            return;
+        } else if(lowerCmd === 'hacktoberfest') {
+            response = "Open innovation matters because your creations remain yours, forever running free without cloud lock-in!";
+        } else if(lowerCmd === 'about') {
+            response = "Ghost in the Machine: A tribute to Halloween & Día de los Muertos built with open-source spirit.";
+        } else {
+            response = `Command '${escapeHtml(cmd)}' not recognized by the machine spirit. Type 'help'.`;
+        }
+
+        screen.innerHTML += `<div class="log-entry log-ghost">${response}</div>`;
+        screen.scrollTop = screen.scrollHeight;
+    }, 300);
+}
+
+function buildOfrenda() {
+    const name = document.getElementById('input-name').value.trim();
+    const offerings = document.getElementById('input-offerings').value.trim();
+    const message = document.getElementById('input-message').value.trim();
+
+    if(name) {
+        document.getElementById('display-name').innerText = name;
+    }
+    if(message) {
+        document.getElementById('display-tribute').innerText = `"${message}"`;
+    }
+    if(offerings) {
+        document.getElementById('display-offerings').innerText = `Offerings: ${offerings} + Marigold petals`;
+    }
+}
+
+function escapeHtml(text) {
+    return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}

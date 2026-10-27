@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost in the Machine | Hacktoberfest 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>👻 Ghost in the Machine 🕯️</h1>
+        <p>Hacktoberfest 2026 | Open-Source AI & Día de los Muertos Altar</p>
+    </header>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('terminal')">Haunted Terminal</button>
+            <button class="tab-btn" onclick="switchTab('ofrenda')">Virtual Ofrenda</button>
+        </div>
+
+        <!-- Section 1: Haunted Terminal -->
+        <div id="terminal-section" class="section active">
+            <div class="terminal-screen" id="terminal-screen">
+                <div class="log-entry log-system">[SYSTEM] Connected to local open-source inference node...</div>
+                <div class="log-entry log-system">[SYSTEM] Type 'help' to see available commands or 'summon' to speak with the machine spirit.</div>
+            </div>
+            <div class="terminal-input-area">
+                <input type="text" id="terminal-input" placeholder="Type a command (e.g. status, summon, clear)..." onkeypress="handleKeyPress(event)">
+                <button onclick="runCommand()">Execute</button>
+            </div>
+        </div>
+
+        <!-- Section 2: Virtual Ofrenda -->
+        <div id="ofrenda-section" class="section">
+            <div class="ofrenda-form">
+                <div class="form-group">
+                    <label>Loved One / Memory Name</label>
+                    <input type="text" id="input-name" placeholder="e.g. Grandfather / Python 2.7">
+                </div>
+                <div class="form-group">
+                    <label>Favorite Offerings (Food / Items)</label>
+                    <input type="text" id="input-offerings" placeholder="e.g. Ladoo, Hot Chai, Coffee">
+                </div>
+                <div class="form-group full-width">
+                    <label>Remembrance Message / Story</label>
+                    <textarea id="input-message" rows="3" placeholder="Write a short tribute or memory you wish to honor..."></textarea>
+                </div>
+                <button class="create-btn" onclick="buildOfrenda()">Light Candles & Create Ofrenda</button>
+            </div>
+
+            <div class="altar-display" id="altar-display">
+                <div class="marigolds">🌼 🕯️ 🌼 🕯️ 🌼</div>
+                <div class="altar-photo-frame">
+                    <span style="font-size: 2.5rem;" class="candle-glow">🕯️</span>
+                </div>
+                <h3 class="altar-name" id="display-name">The Unknown Spirit</h3>
+                <p class="altar-tribute" id="display-tribute">"May your memory live eternally within the open-source silicon and glowing machine code."</p>
+                <div class="altar-offerings" id="display-offerings">Offerings: Marigold petals, Digital candles</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Built with HTML5, CSS3, & Vanilla JS for Hacktoberfest 2026. 100% Offline & Open-Source.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
